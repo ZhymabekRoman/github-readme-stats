@@ -263,21 +263,18 @@ const getCardColors = ({
  */
 const wrapTextMultiline = (text, width = 59, maxLines = 3) => {
   const fullWidthComma = "，";
-  const encoded = encodeHTML(text);
-  const isChinese = encoded.includes(fullWidthComma);
+  const isChinese = text.includes(fullWidthComma);
 
   let wrapped = [];
 
   if (isChinese) {
-    wrapped = encoded.split(fullWidthComma); // Chinese full punctuation
+    wrapped = text.split(fullWidthComma); // Chinese full punctuation
   } else {
-    wrapped = wrap(encoded, {
+    wrapped = wrap(text, {
       width,
     }).split("\n"); // Split wrapped lines to get an array of lines
   }
-
   const lines = wrapped.map((line) => line.trim()).slice(0, maxLines); // Only consider maxLines lines
-
   // Add "..." to the last line if the text exceeds maxLines
   if (wrapped.length > maxLines) {
     lines[maxLines - 1] += "...";
@@ -285,7 +282,11 @@ const wrapTextMultiline = (text, width = 59, maxLines = 3) => {
 
   // Remove empty lines if text fits in less than maxLines lines
   const multiLineText = lines.filter(Boolean);
-  return multiLineText;
+
+  const encodedText = encodeHTML(multiLineText.join("\n"));
+  const encodedMultiLineText = encodedText.split("\n")
+
+  return encodedMultiLineText;
 };
 
 const noop = () => {};
