@@ -280,7 +280,7 @@ const wrapTextMultiline = (text, width = 56, maxLines = 3) => {
     lines[maxLines - 1] += "...";
   }
   while (wrapped.length == maxLines) {
-    lines.push += ""
+    lines.push += " "
   }
 
   // Remove empty lines if text fits in less than maxLines lines
