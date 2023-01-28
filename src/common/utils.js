@@ -279,9 +279,6 @@ const wrapTextMultiline = (text, width = 56, maxLines = 3) => {
   if (wrapped.length > maxLines) {
     lines[maxLines - 1] += "...";
   }
-  while (wrapped.length == maxLines) {
-    lines.push += " "
-  }
 
   // Remove empty lines if text fits in less than maxLines lines
   // const multiLineText = lines.filter(Boolean);
