@@ -14,6 +14,7 @@ export default async (req, res) => {
     username,
     repo,
     text_width,
+    text_line,
     hide_border,
     title_color,
     icon_color,
@@ -72,6 +73,7 @@ export default async (req, res) => {
     return res.send(
       renderRepoCard(repoData, {
         text_width: text_width ? parseInt(text_width) : 56,
+        text_line: text_line ? parseInt(text_line) : 3,
         hide_border: parseBoolean(hide_border),
         title_color,
         icon_color,
