@@ -98,7 +98,8 @@ const renderRepoCard = (repo, options = {}) => {
     forkCount,
   } = repo;
   const {
-    text_width = 56, 
+    text_width = 56,
+    text_line = 3,
     hide_border = false,
     title_color,
     icon_color,
@@ -117,7 +118,7 @@ const renderRepoCard = (repo, options = {}) => {
   const langColor = (primaryLanguage && primaryLanguage.color) || "#333";
 
   const desc = parseEmojis(description || "No description provided");
-  const multiLineDescription = wrapTextMultiline(desc, text_width);
+  const multiLineDescription = wrapTextMultiline(desc, text_width, text_line);
   const descriptionLines = multiLineDescription.length;
   const descriptionSvg = multiLineDescription
     .map((line) => `<tspan dy="1.2em" x="25">${encodeHTML(line)}</tspan>`)
