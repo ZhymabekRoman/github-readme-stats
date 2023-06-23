@@ -283,8 +283,9 @@ const wrapTextMultiline = (text, width = 56, maxLines = 3) => {
   }
 
   // Remove empty lines if text fits in less than maxLines lines
-  const multiLineText = lines.filter(Boolean);
-
+  // const multiLineText = lines.filter(Boolean);
+  const multiLineText = lines
+  
   const encodedText = encodeHTML(multiLineText.join("\n"));
   const encodedMultiLineText = encodedText.split("\n")
 
