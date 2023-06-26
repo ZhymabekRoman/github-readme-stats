@@ -119,7 +119,7 @@ const renderRepoCard = (repo, options = {}) => {
 
   const desc = parseEmojis(description || "No description provided");
   const multiLineDescription = wrapTextMultiline(desc, text_width, text_line);
-  const descriptionLines = multiLineDescription.length;
+  const descriptionLines = 3;
   const descriptionSvg = multiLineDescription
     .map((line) => `<tspan dy="1.2em" x="25">${encodeHTML(line)}</tspan>`)
     .join("");
